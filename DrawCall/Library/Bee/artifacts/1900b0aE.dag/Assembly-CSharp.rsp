@@ -355,6 +355,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/CusotmRP/Examples/MeshBall.cs"
+"Assets/CusotmRP/Examples/PerObjectMaterialProperties.cs"
 "Assets/CusotmRP/Runtime/CameraRenderer.cs"
 "Assets/CusotmRP/Runtime/CameraRenderer.Editor.cs"
 "Assets/CusotmRP/Runtime/CustomRenderPipeline.cs"

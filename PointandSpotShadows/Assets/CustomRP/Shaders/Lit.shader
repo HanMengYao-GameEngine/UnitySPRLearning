@@ -2,6 +2,8 @@
 {
     Properties
     {
+	   [HideInInspector] _MainTex("Texture for Lightmap", 2D) = "white" {}
+	   [HideInInspector] _Color("Color for Lightmap", Color) = (0.5, 0.5, 0.5, 1.0)
 	   _BaseMap("Texture", 2D) = "white" {}
 	   _BaseColor("Color", Color) = (0.5, 0.5, 0.5, 1.0)
 	   //透明度测试的阈值
@@ -29,8 +31,7 @@
     }
     SubShader
     {     
-
-		HLSLINCLUDE
+        HLSLINCLUDE
 		#include "../ShaderLibrary/Common.hlsl"
 		#include "LitInput.hlsl"
 		ENDHLSL
@@ -51,6 +52,7 @@
 		   //是否透明通道预乘
 		   #pragma shader_feature _PREMULTIPLY_ALPHA
 		   #pragma multi_compile _ _DIRECTIONAL_PCF3 _DIRECTIONAL_PCF5 _DIRECTIONAL_PCF7
+		   #pragma multi_compile _ _OTHER_PCF3 _OTHER_PCF5 _OTHER_PCF7
 		   #pragma multi_compile _ _CASCADE_BLEND_SOFT _CASCADE_BLEND_DITHER
 		   #pragma multi_compile _ _SHADOW_MASK_ALWAYS _SHADOW_MASK_DISTANCE
 		   #pragma multi_compile _ LIGHTMAP_ON

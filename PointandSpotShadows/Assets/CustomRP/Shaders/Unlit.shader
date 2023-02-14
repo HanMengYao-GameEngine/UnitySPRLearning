@@ -3,7 +3,7 @@
     Properties
     {
 	   _BaseMap("Texture", 2D) = "white" {}
-	   [HDR]  _BaseColor("Color", Color) = (1.0, 1.0, 1.0, 1.0)
+	  [HDR]  _BaseColor("Color", Color) = (1.0, 1.0, 1.0, 1.0)
 	   //透明度测试的阈值
 	   _Cutoff("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
 	   [Toggle(_CLIPPING)] _Clipping("Alpha Clipping", Float) = 0
@@ -15,7 +15,7 @@
     }
     SubShader
     {     
-		HLSLINCLUDE
+        HLSLINCLUDE
 		#include "../ShaderLibrary/Common.hlsl"
 		#include "UnlitInput.hlsl"
 		ENDHLSL
@@ -51,8 +51,8 @@
 			#include "ShadowCasterPass.hlsl"
 			ENDHLSL
         }
-		Pass
-		{
+		Pass 
+	    {
 			Tags {
 				"LightMode" = "Meta"
 			}
@@ -67,5 +67,5 @@
 			ENDHLSL
 		}
     }
-	CustomEditor "CustomShaderGUI"
+		   CustomEditor "CustomShaderGUI"
 }

@@ -1,4 +1,4 @@
-#ifndef CUSTOM_META_PASS_INCLUDED
+﻿#ifndef CUSTOM_META_PASS_INCLUDED
 #define CUSTOM_META_PASS_INCLUDED
 
 #include "../ShaderLibrary/Surface.hlsl"
@@ -10,7 +10,7 @@
 struct Attributes {
 	float3 positionOS : POSITION;
 	float2 baseUV : TEXCOORD0;
-    float2 lightMapUV : TEXCOORD1;
+	float2 lightMapUV : TEXCOORD1;
 };
 //片元函数输入结构体
 struct Varyings {
@@ -22,9 +22,8 @@ bool4 unity_MetaFragmentControl;
 float unity_OneOverOutputBoost;
 float unity_MaxOutputValue;
 
-Varyings MetaPassVertex(Attributes input) 
-{
-    Varyings output;
+Varyings MetaPassVertex(Attributes input) {
+	Varyings output;
 	input.positionOS.xy = input.lightMapUV * unity_LightmapST.xy + unity_LightmapST.zw;
 	input.positionOS.z = input.positionOS.z > 0.0 ? FLT_MIN : 0.0;
 	output.positionCS = TransformWorldToHClip(input.positionOS);
@@ -41,15 +40,16 @@ float4 MetaPassFragment(Varyings input) : SV_TARGET{
 	surface.smoothness = GetSmoothness(input.baseUV);
 	BRDF brdf = GetBRDF(surface);
 	float4 meta =0.0;
-    if (unity_MetaFragmentControl.x) {
+	//若标记了X分量，则需要漫反射率
+	if (unity_MetaFragmentControl.x) {
 		meta = float4(brdf.diffuse, 1.0);
 		meta.rgb += brdf.specular * brdf.roughness * 0.5;
 		meta.rgb = min(PositivePow(meta.rgb, unity_OneOverOutputBoost), unity_MaxOutputValue);
 	}
-    else if (unity_MetaFragmentControl.y)
-    {
-        meta = float4(GetEmission(input.baseUV), 1.0);
-    }
+	//若标记了Y分量，则返回自发光的颜色
+	else if (unity_MetaFragmentControl.y) {
+		meta = float4(GetEmission(input.baseUV), 1.0);
+	}
 	return meta;
 }
 

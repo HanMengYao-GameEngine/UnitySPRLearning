@@ -1,4 +1,4 @@
-//不受光着色器公用属性和方法库
+﻿//不受光着色器公用属性和方法库
 #ifndef CUSTOM_UNLIT_INPUT_INCLUDED
 #define CUSTOM_UNLIT_INPUT_INCLUDED
 
@@ -38,5 +38,7 @@ float GetSmoothness(float2 baseUV) {
 float3 GetEmission (float2 baseUV) {
 	return GetBase(baseUV).rgb;
 }
-
+float GetFresnel (float2 baseUV) {
+	return 0.0;
+}
 #endif

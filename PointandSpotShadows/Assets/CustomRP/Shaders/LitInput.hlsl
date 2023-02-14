@@ -1,4 +1,4 @@
-#ifndef CUSTOM_LIT_INPUT_INCLUDED
+﻿#ifndef CUSTOM_LIT_INPUT_INCLUDED
 #define CUSTOM_LIT_INPUT_INCLUDED
 
 TEXTURE2D(_EmissionMap);
@@ -45,7 +45,6 @@ float3 GetEmission (float2 baseUV) {
 	float4 color = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _EmissionColor);
 	return map.rgb * color.rgb;
 }
-
 float GetFresnel (float2 baseUV) {
 	return UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _Fresnel);
 }

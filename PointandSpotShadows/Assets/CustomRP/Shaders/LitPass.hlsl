@@ -49,7 +49,7 @@ Varyings LitPassVertex(Attributes input){
 //片元函数
 float4 LitPassFragment(Varyings input) : SV_TARGET {
 	UNITY_SETUP_INSTANCE_ID(input);
-	ClipLOD(input.positionCS.xy, unity_LODFade.x);
+    ClipLOD(input.positionCS.xy, unity_LODFade.x);
     float4 base = GetBase(input.baseUV);
 #if defined(_CLIPPING)
 	//透明度低于阈值的片元进行舍弃
@@ -59,6 +59,7 @@ float4 LitPassFragment(Varyings input) : SV_TARGET {
 	Surface surface;
 	surface.position = input.positionWS;
 	surface.normal = normalize(input.normalWS);
+	surface.interpolatedNormal = input.normalWS;
 	//得到视角方向
 	surface.viewDirection = normalize(_WorldSpaceCameraPos - input.positionWS);
 	//获取表面深度
@@ -77,7 +78,7 @@ float4 LitPassFragment(Varyings input) : SV_TARGET {
 	BRDF brdf = GetBRDF(surface);
 #endif
 	//获取全局照明
-	GI gi = GetGI(GI_FRAGMENT_DATA(input),surface, brdf);
+	GI gi = GetGI(GI_FRAGMENT_DATA(input), surface, brdf);
 	float3 color = GetLighting(surface, brdf, gi);
 	color += GetEmission(input.baseUV);
 	return float4(color, surface.alpha);

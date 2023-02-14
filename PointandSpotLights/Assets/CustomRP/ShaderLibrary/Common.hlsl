@@ -11,8 +11,6 @@
 #define UNITY_MATRIX_VP unity_MatrixVP
 #define UNITY_MATRIX_P glstate_matrix_projection
 
-#define UNITY_PREV_MATRIX_M unity_Prev_MatrixM
-#define UNITY_PREV_MATRIX_I_M unity_Prev_WorldToObject
 
 //获取值的平方
 float Square (float v) {
@@ -33,6 +31,8 @@ void ClipLOD (float2 positionCS, float fade) {
 	#define SHADOWS_SHADOWMASK
 #endif
 
+#define UNITY_PREV_MATRIX_M unity_Prev_MatrixM
+#define UNITY_PREV_MATRIX_I_M unity_Prev_WorldToObject
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/UnityInstancing.hlsl"
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/SpaceTransforms.hlsl"
 #endif

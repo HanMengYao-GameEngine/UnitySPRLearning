@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: Post FX
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 02560015c38c5b74ca2bb405bd98a4d8, type: 3}
+  toneMapping:
+    mode: 0
   bloom:
     maxIterations: 16
     downscaleLimit: 2
     bicubicUpsampling: 1
-    threshold: 0.5
-    thresholdKnee: 0.5
-    intensity: 1.61
+    threshold: 0.96
+    thresholdKnee: 1
+    intensity: 0.58
+    fadeFireflies: 1
+    mode: 1
+    scatter: 0.49

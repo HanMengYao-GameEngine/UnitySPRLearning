@@ -28,12 +28,13 @@ public partial class CameraRenderer
     PostFXStack postFXStack = new PostFXStack();
     //相机的帧缓冲区
     static int frameBufferId = Shader.PropertyToID("_CameraFrameBuffer");
+
+    bool useHDR;
     /// <summary>
     /// 相机渲染
     /// </summary>
-    public void Render(ScriptableRenderContext context, Camera camera,
-        bool useDynamicBatching, bool useGPUInstancing, bool useLightsPerObject,ShadowSettings shadowSettings,
-        PostFXSettings postFXSettings)
+    public void Render(ScriptableRenderContext context, Camera camera, bool allowHDR,
+        bool useDynamicBatching, bool useGPUInstancing, bool useLightsPerObject,ShadowSettings shadowSettings, PostFXSettings postFXSettings)
     {
         this.context = context;
         this.camera = camera;
@@ -46,11 +47,14 @@ public partial class CameraRenderer
         {
             return;
         }
+
+        useHDR = allowHDR && camera.allowHDR;
+
         buffer.BeginSample(SampleName);
         ExecuteBuffer();
 
         lighting.Setup(context, cullingResults, shadowSettings, useLightsPerObject);
-        postFXStack.Setup(context, camera, postFXSettings);
+        postFXStack.Setup(context, camera, postFXSettings, useHDR);
         buffer.EndSample(SampleName);
         Setup();
 
@@ -61,8 +65,7 @@ public partial class CameraRenderer
 
         //绘制Gizmos
         DrawGizmosBeforeFX();
-        
-        if(postFXStack.IsActive)
+        if (postFXStack.IsActive)
         {
             postFXStack.Render(frameBufferId);
         }
@@ -141,14 +144,15 @@ public partial class CameraRenderer
         //得到相机的clear flags
         CameraClearFlags flags = camera.clearFlags;
 
-        if(postFXStack.IsActive)
+        if (postFXStack.IsActive)
         {
-            if(flags > CameraClearFlags.Color)
+            if (flags > CameraClearFlags.Color)
             {
                 flags = CameraClearFlags.Color;
             }
-            buffer.GetTemporaryRT(frameBufferId, camera.pixelWidth, camera.pixelHeight, 32, FilterMode.Bilinear, RenderTextureFormat.Default);
-            buffer.SetRenderTarget(frameBufferId, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store);
+            buffer.GetTemporaryRT(frameBufferId, camera.pixelWidth, camera.pixelHeight,32, FilterMode.Bilinear, 
+                useHDR ? RenderTextureFormat.DefaultHDR : RenderTextureFormat.Default);
+            buffer.SetRenderTarget(frameBufferId,RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store);
         }
         //设置相机清除状态
         buffer.ClearRenderTarget(flags <= CameraClearFlags.Depth, flags == CameraClearFlags.Color, 

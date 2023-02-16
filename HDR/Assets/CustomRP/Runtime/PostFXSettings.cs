@@ -30,12 +30,43 @@ public class PostFXSettings : ScriptableObject
         //Bloom强度
 		[Min(0f)]
 		public float intensity;
-	}
+		//淡化闪烁
+		public bool fadeFireflies;
+        //Bloom模式：叠加或散射
+        public enum Mode { Additive, Scattering }
 
-	[SerializeField]
-	BloomSettings bloom = default;
+        public Mode mode;
+        //控制光线散射的程度
+        [Range(0.05f, 0.95f)]
+        public float scatter;
+    }
+    //色调映射的配置
+    [System.Serializable]
+    public struct ToneMappingSettings
+    {
+        //色调映射常用的几种模式
+        public enum Mode {
+            None = -1,
+            ACES,
+            Neutral,
+            Reinhard
+        }
 
-	public BloomSettings Bloom => bloom;
+        public Mode mode;
+    }
+
+    [SerializeField]
+    ToneMappingSettings toneMapping = default;
+
+    public ToneMappingSettings ToneMapping => toneMapping;
+
+    [SerializeField]
+	BloomSettings bloom = new BloomSettings
+    {
+        scatter = 0.7f
+    };
+
+    public BloomSettings Bloom => bloom;
 	public Material Material
 	{
 		get

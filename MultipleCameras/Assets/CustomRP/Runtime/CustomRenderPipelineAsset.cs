@@ -7,7 +7,7 @@ using UnityEngine.Rendering;
 /// </summary>
 //该标签会在你在Project下右键->Asset/Create菜单中添加一个新的子菜单
 [CreateAssetMenu(menuName ="Rendering/CreateCustomRenderPipeline")]
-public class CustomRenderPipelineAsset : RenderPipelineAsset
+public partial class CustomRenderPipelineAsset : RenderPipelineAsset
 {
     //设置批处理启用状态
     [SerializeField]
@@ -37,7 +37,6 @@ public class CustomRenderPipelineAsset : RenderPipelineAsset
     //重写抽象方法，需要返回一个RenderPipeline实例对象
     protected override RenderPipeline CreatePipeline()
     {
-        return new CustomRenderPipeline(allowHDR, useDynamicBatching, useGPUInstancing, useSRPBatcher, 
-        useLightsPerObject, shadows, postFXSettings, (int)colorLUTResolution);
+        return new CustomRenderPipeline(allowHDR, useDynamicBatching, useGPUInstancing, useSRPBatcher, useLightsPerObject, shadows, postFXSettings, (int)colorLUTResolution);
     }
 }

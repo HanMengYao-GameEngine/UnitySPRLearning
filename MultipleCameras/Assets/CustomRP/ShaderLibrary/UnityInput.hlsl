@@ -8,6 +8,7 @@ float4 unity_LODFade;
 //相机位置
 //这个矩阵包含一些在这里我们不需要的转换信息
 real4 unity_WorldTransformParams;
+float4 unity_RenderingLayer;
 //灯光数据和索引
 real4 unity_LightData;
 real4 unity_LightIndices[2];

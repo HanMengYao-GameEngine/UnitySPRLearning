@@ -331,9 +331,11 @@ public class Shadows
     void RenderDirectionalShadows(int index, int split, int tileSize)
 	{
 		ShadowedDirectionalLight light = ShadowedDirectionalLights[index];
-		var shadowSettings = new ShadowDrawingSettings(cullingResults, light.visibleLightIndex);
-
-		int cascadeCount = settings.directional.cascadeCount;
+		var shadowSettings = new ShadowDrawingSettings(cullingResults, light.visibleLightIndex)
+        {
+            useRenderingLayerMaskTest = true
+        };
+        int cascadeCount = settings.directional.cascadeCount;
 		int tileOffset = index * cascadeCount;
 		Vector3 ratios = settings.directional.CascadeRatios;
         float cullingFactor = Mathf.Max(0f, 0.8f - settings.directional.cascadeFade);
@@ -378,8 +380,10 @@ public class Shadows
     void RenderSpotShadows(int index, int split, int tileSize)
     {
         ShadowedOtherLight light = shadowedOtherLights[index];
-        var shadowSettings = new ShadowDrawingSettings(cullingResults, light.visibleLightIndex);
-
+        var shadowSettings = new ShadowDrawingSettings(cullingResults, light.visibleLightIndex)
+        {
+            useRenderingLayerMaskTest = true
+        };
         cullingResults.ComputeSpotShadowMatricesAndCullingPrimitives(light.visibleLightIndex, out Matrix4x4 viewMatrix,out Matrix4x4 projectionMatrix, out ShadowSplitData splitData);
         //剔除投影对象的数据
         shadowSettings.splitData = splitData;
@@ -412,7 +416,10 @@ public class Shadows
     void RenderPointShadows(int index, int split, int tileSize)
     {
         ShadowedOtherLight light = shadowedOtherLights[index];
-        var shadowSettings = new ShadowDrawingSettings(cullingResults, light.visibleLightIndex);
+        var shadowSettings = new ShadowDrawingSettings(cullingResults, light.visibleLightIndex)
+        {
+            useRenderingLayerMaskTest = true
+        };
         //计算法线偏差
         float texelSize = 2f / tileSize;
         float filterSize = texelSize * ((float)settings.other.filter + 1f);

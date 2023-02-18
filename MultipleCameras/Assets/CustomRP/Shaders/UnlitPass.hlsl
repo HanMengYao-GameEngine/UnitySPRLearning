@@ -36,7 +36,7 @@ float4 UnlitPassFragment (Varyings input) : SV_TARGET {
 	//透明度低于阈值的片元进行舍弃
 	clip(base.a - GetCutoff(input.baseUV));
 #endif
-	return base;
+	return float4(base.rgb, GetFinalAlpha(base.a));
 }
 
 #endif

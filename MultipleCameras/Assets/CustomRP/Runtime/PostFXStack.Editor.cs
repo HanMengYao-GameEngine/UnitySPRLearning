@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 partial class PostFXStack
 {
-	partial void ApplySceneViewState();
+    partial void ApplySceneViewState();
 
 #if UNITY_EDITOR
 	partial void ApplySceneViewState()

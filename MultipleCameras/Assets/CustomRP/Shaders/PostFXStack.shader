@@ -130,7 +130,7 @@ Shader "Hidden/Custom RP/Post FX Stack" {
 		//采样源纹理并应用到颜色分级LUT
 		Pass{
 			Name "Final"
-
+			Blend [_FinalSrcBlend] [_FinalDstBlend]
 			HLSLPROGRAM
 				#pragma target 3.5
 				#pragma vertex DefaultPassVertex

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 02560015c38c5b74ca2bb405bd98a4d8, type: 3}
   colorAdjustments:
-    postExposure: 0.03
-    contrast: 3
+    postExposure: 0.76
+    contrast: -10
     colorFilter: {r: 1, g: 1, b: 1, a: 1}
     hueShift: 0
-    saturation: 13
+    saturation: 0
   whiteBalance:
     temperature: 9
     tint: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
     highlightsStart: 0.55
     highLightsEnd: 1
   toneMapping:
-    mode: 2
+    mode: 1
   bloom:
     maxIterations: 16
     downscaleLimit: 2

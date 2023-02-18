@@ -35,13 +35,18 @@ public partial class PostFXStack
     int colorGradingLUTParametersId = Shader.PropertyToID("_ColorGradingLUTParameters");
     int colorGradingLUTInLogId = Shader.PropertyToID("_ColorGradingLUTInLogC");
 
-    CommandBuffer buffer = new CommandBuffer
+	int finalSrcBlendId = Shader.PropertyToID("_FinalSrcBlend");
+	int finalDstBlendId = Shader.PropertyToID("_FinalDstBlend");
+
+	CommandBuffer buffer = new CommandBuffer
 	{
 		name = bufferName
 	};
 	ScriptableRenderContext context;
 	Camera camera;
 	PostFXSettings settings;
+
+	CameraSettings.FinalBlendMode finalBlendMode;
 	bool useHDR;
 	//最大纹理金字塔级别
 	const int maxBloomPyramidLevels = 16;
@@ -79,13 +84,14 @@ public partial class PostFXStack
 		}
 	}
     //初始化设置
-	public void Setup(ScriptableRenderContext context, Camera camera, PostFXSettings settings, bool useHDR, int colorLUTResolution)
+	public void Setup(ScriptableRenderContext context, Camera camera, PostFXSettings settings, bool useHDR, int colorLUTResolution, CameraSettings.FinalBlendMode finalBlendMode)
 	{
 		this.useHDR = useHDR;
 		this.context = context;
 		this.camera = camera;
         this.colorLUTResolution = colorLUTResolution;
         this.settings = camera.cameraType <= CameraType.SceneView ? settings : null;
+		this.finalBlendMode = finalBlendMode;
 		ApplySceneViewState();
 	}
     /// <summary>
@@ -101,7 +107,24 @@ public partial class PostFXStack
         //绘制三角形
 		buffer.DrawProcedural(Matrix4x4.identity, settings.Material, (int)pass,MeshTopology.Triangles, 3);
 	}
-     /// <summary>
+    /// <summary>
+    /// 最终绘制
+    /// </summary>
+    /// <param name="from"></param>
+    /// <param name="pass"></param>
+	void DrawFinal(RenderTargetIdentifier from)
+	{
+		buffer.SetGlobalFloat(finalSrcBlendId, (float)finalBlendMode.source);
+		buffer.SetGlobalFloat(finalDstBlendId, (float)finalBlendMode.destination);
+
+		buffer.SetGlobalTexture(fxSourceId, from);
+		buffer.SetRenderTarget(BuiltinRenderTextureType.CameraTarget, 
+			finalBlendMode.destination == BlendMode.Zero ? RenderBufferLoadAction.DontCare: RenderBufferLoadAction.Load, RenderBufferStoreAction.Store);
+		//最终绘制之前设置视口
+		buffer.SetViewport(camera.pixelRect);
+		buffer.DrawProcedural(Matrix4x4.identity, settings.Material, (int)Pass.Final, MeshTopology.Triangles, 3);
+	}
+    /// <summary>
     /// 渲染后处理特效
     /// </summary>
     /// <param name="sourceId"></param>
@@ -294,7 +317,8 @@ public partial class PostFXStack
         Draw(sourceId, colorGradingLUTId, pass);
 
         buffer.SetGlobalVector(colorGradingLUTParametersId,new Vector4(1f / lutWidth, 1f / lutHeight, lutHeight - 1f));
-        Draw(sourceId, BuiltinRenderTextureType.CameraTarget, Pass.Final);
-        buffer.ReleaseTemporaryRT(colorGradingLUTId);
+		//Draw(sourceId, BuiltinRenderTextureType.CameraTarget, Pass.Final);
+		DrawFinal(sourceId);
+		buffer.ReleaseTemporaryRT(colorGradingLUTId);
     }
 }

@@ -29,6 +29,8 @@ public partial class CameraRenderer
     //相机的帧缓冲区
     static int frameBufferId = Shader.PropertyToID("_CameraFrameBuffer");
 
+    static CameraSettings defaultCameraSettings = new CameraSettings();
+
     bool useHDR;
     /// <summary>
     /// 相机渲染
@@ -39,6 +41,14 @@ public partial class CameraRenderer
     {
         this.context = context;
         this.camera = camera;
+
+        var crpCamera = camera.GetComponent<CustomRenderPipelineCamera>();
+        CameraSettings cameraSettings = crpCamera ? crpCamera.Settings : defaultCameraSettings;
+        //如果需要覆盖后处理配置，将渲染管线的后处理配置替换成该相机的后处理配置
+        if (cameraSettings.overridePostFX)
+        {
+            postFXSettings = cameraSettings.postFXSettings;
+        }
         //设置buffer缓冲区的名字
         PrepareBuffer();
         // 在Game视图绘制的几何体也绘制到Scene视图中
@@ -54,13 +64,13 @@ public partial class CameraRenderer
         buffer.BeginSample(SampleName);
         ExecuteBuffer();
 
-        lighting.Setup(context, cullingResults, shadowSettings, useLightsPerObject);
-        postFXStack.Setup(context, camera, postFXSettings, useHDR, colorLUTResolution);
+        lighting.Setup(context, cullingResults, shadowSettings, useLightsPerObject, cameraSettings.maskLights ? cameraSettings.renderingLayerMask : -1);
+        postFXStack.Setup(context, camera, postFXSettings, useHDR, colorLUTResolution,cameraSettings.finalBlendMode);
         buffer.EndSample(SampleName);
         Setup();
 
         //绘制几何体
-        DrawVisibleGeometry(useDynamicBatching, useGPUInstancing,useLightsPerObject);
+        DrawVisibleGeometry(useDynamicBatching, useGPUInstancing,useLightsPerObject, cameraSettings.renderingLayerMask);
         //绘制SRP不支持的内置shader类型
         DrawUnsupportedShaders();
 
@@ -93,7 +103,7 @@ public partial class CameraRenderer
     /// <summary>
     /// 绘制几何体
     /// </summary>
-    void DrawVisibleGeometry(bool useDynamicBatching, bool useGPUInstancing, bool useLightsPerObject)
+    void DrawVisibleGeometry(bool useDynamicBatching, bool useGPUInstancing, bool useLightsPerObject, int renderingLayerMask)
     {
         PerObjectData lightsPerObjectFlags = useLightsPerObject ? PerObjectData.LightData | PerObjectData.LightIndices : PerObjectData.None;
         //设置绘制顺序和指定渲染相机
@@ -112,7 +122,7 @@ public partial class CameraRenderer
         //渲染CustomLit表示的pass块
         drawingSettings.SetShaderPassName(1, litShaderTagId);
         ////只绘制RenderQueue为opaque不透明的物体
-        var filteringSettings = new FilteringSettings(RenderQueueRange.opaque);
+        var filteringSettings = new FilteringSettings(RenderQueueRange.opaque, renderingLayerMask: (uint)renderingLayerMask);
         //1.绘制不透明物体
         context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);
         

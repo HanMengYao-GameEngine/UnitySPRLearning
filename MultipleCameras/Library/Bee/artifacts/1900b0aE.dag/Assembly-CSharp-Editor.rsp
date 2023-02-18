@@ -354,6 +354,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/CustomRP/Editor/CustomLightEditor.cs"
 "Assets/CustomRP/Editor/CustomShaderGUI.cs"
+"Assets/CustomRP/Editor/RenderingLayerMaskDrawer.cs"
 -langversion:9.0
 
 /deterministic

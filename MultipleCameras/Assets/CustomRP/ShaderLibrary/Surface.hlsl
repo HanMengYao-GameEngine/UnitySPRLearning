@@ -16,8 +16,10 @@ struct Surface {
 	float dither;
 	//菲涅尔反射强度
 	float fresnelStrength;
-
+	//插值法线
 	float3 interpolatedNormal;
+	//渲染层掩码
+	uint renderingLayerMask;
 };
 
 #endif

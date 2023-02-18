@@ -11,18 +11,19 @@ public partial class CustomRenderPipeline : RenderPipeline
     bool useDynamicBatching, useGPUInstancing, useLightsPerObject;
     //阴影的配置
     ShadowSettings shadowSettings;
+    //后处理的配置
     PostFXSettings postFXSettings;
     //LUT分辨率
     int colorLUTResolution;
     bool allowHDR;
-    public CustomRenderPipeline(bool allowHDR, bool useDynamicBatching, bool useGPUInstancing, bool useSRPBatcher, 
-    bool useLightsPerObject, ShadowSettings shadowSettings, PostFXSettings postFXSettings, int colorLUTResolution)
+    //测试SRP合批启用
+    public CustomRenderPipeline(bool allowHDR, bool useDynamicBatching, bool useGPUInstancing, bool useSRPBatcher, bool useLightsPerObject, ShadowSettings shadowSettings, PostFXSettings postFXSettings, int colorLUTResolution)
     {
-        this.colorLUTResolution = colorLUTResolution;
         this.allowHDR = allowHDR;
         this.shadowSettings = shadowSettings;
         this.postFXSettings = postFXSettings;
-
+        this.colorLUTResolution = colorLUTResolution;
+    
         this.useDynamicBatching = useDynamicBatching;
         this.useGPUInstancing = useGPUInstancing;
         this.useLightsPerObject = useLightsPerObject;
@@ -37,8 +38,7 @@ public partial class CustomRenderPipeline : RenderPipeline
         //遍历所有相机单独渲染
         foreach (Camera camera in cameras)
         {
-            renderer.Render(context, camera, allowHDR, useDynamicBatching, 
-                useGPUInstancing, useLightsPerObject, shadowSettings, postFXSettings, colorLUTResolution);
+            renderer.Render(context, camera, allowHDR, useDynamicBatching, useGPUInstancing, useLightsPerObject, shadowSettings, postFXSettings, colorLUTResolution);
         }
     }
 }

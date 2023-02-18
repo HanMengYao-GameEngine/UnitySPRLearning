@@ -347,11 +347,16 @@
 "Assets/CustomRP/Runtime/CustomRenderPipeline.cs"
 "Assets/CustomRP/Runtime/CustomRenderPipeline.Editor.cs"
 "Assets/CustomRP/Runtime/CustomRenderPipelineAsset.cs"
+"Assets/CustomRP/Runtime/CustomRenderPipelineAsset.Editor.cs"
+"Assets/CustomRP/Runtime/CustomRenderPipelineCamera.cs"
 "Assets/CustomRP/Runtime/Lighting.cs"
 "Assets/CustomRP/Runtime/PostFXSettings.cs"
 "Assets/CustomRP/Runtime/PostFXStack.cs"
 "Assets/CustomRP/Runtime/PostFXStack.Editor.cs"
+"Assets/CustomRP/Runtime/ReinterpretExtensions.cs"
+"Assets/CustomRP/Runtime/RenderingLayerMaskFieldAttribute.cs"
 "Assets/CustomRP/Runtime/Shadows.cs"
+"Assets/CustomRP/Settings/CameraSettings.cs"
 "Assets/CustomRP/Settings/ShadowSettings.cs"
 -langversion:9.0
 

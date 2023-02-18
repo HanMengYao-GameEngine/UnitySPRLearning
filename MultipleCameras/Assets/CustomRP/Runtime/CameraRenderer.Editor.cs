@@ -10,6 +10,7 @@ using UnityEngine.Rendering;
 public partial class CameraRenderer
 {
     partial void DrawUnsupportedShaders();
+
     partial void DrawGizmosBeforeFX();
     partial void DrawGizmosAfterFX();
     partial void PrepareForSceneWindow();
@@ -54,6 +55,7 @@ public partial class CameraRenderer
         //绘制不支持的shaderTag类型的物体
         context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);
     }
+
     /// <summary>
     /// 在后处理之前绘制DrawGizmos
     /// </summary>

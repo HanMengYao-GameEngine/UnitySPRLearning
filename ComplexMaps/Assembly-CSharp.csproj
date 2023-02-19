@@ -98,6 +98,7 @@
      <None Include="Library\PackageCache\com.unity.modules.assetbundle@1.0.0\package.json" />
      <None Include="Assets\CustomRP\Shaders\PostFXStack.shader" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\package.json" />
+     <Folder Include="Assets\Scene\Scene14\Scene14 1" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\guihelp.ja.txt" />
      <None Include="Library\PackageCache\com.unity.modules.imgui@1.0.0\package.json" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\ValidationExceptions.json" />
@@ -105,6 +106,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\xdiff.ja.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\configurehelper.es.txt" />
      <Folder Include="Library\PackageCache\com.unity.modules.assetbundle@1.0.0" />
+     <Folder Include="Assets\Scene\Scene14\Gun" />
      <None Include="Library\PackageCache\com.unity.timeline@1.6.4\package.json" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom" />
      <Folder Include="Assets\Scene\Scene4\Materials" />
@@ -202,6 +204,8 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\semantic.ko.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\workspaceserver.en.txt" />
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.16\ValidationExceptions.json" />
+     <Folder Include="Assets\Scene\Scene14\Texutre" />
+     <Folder Include="Assets\Scene\Scene14\Scene14" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\cm-help.zh-Hant.txt" />
      <None Include="Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\link.xml" />
      <None Include="Library\PackageCache\com.unity.modules.wind@1.0.0\package.json" />
@@ -256,6 +260,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\cm.ja.txt" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF_SSD.cginc" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\ValidationConfig.json" />
+     <Folder Include="Assets\Scene\Scene14" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\images.ja.txt" />
      <None Include="Assets\CustomRP\ShaderLibrary\Light.hlsl" />
      <Folder Include="Library\PackageCache\com.unity.ide.vscode@1.2.5" />

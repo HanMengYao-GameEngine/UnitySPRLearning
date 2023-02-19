@@ -15,14 +15,31 @@
 	   [Toggle(_RECEIVE_SHADOWS)] _ReceiveShadows ("Receive Shadows", Float) = 1
        //透明通道预乘
 	   [Toggle(_PREMULTIPLY_ALPHA)] _PremulAlpha("Premultiply Alpha", Float) = 0
+	   //遮罩纹理
+	   [Toggle(_MASK_MAP)] _MaskMapToggle("Mask Map", Float) = 0
+	   [NoScaleOffset] _MaskMap("Mask (MODS)", 2D) = "white" {}
+
        //金属度和光滑度
 	   _Metallic("Metallic", Range(0, 1)) = 0
 	   _Smoothness("Smoothness", Range(0, 1)) = 0.5
+	   //遮挡强度
+	   _Occlusion ("Occlusion", Range(0, 1)) = 1
 	   //菲涅尔强度
 	   _Fresnel ("Fresnel", Range(0, 1)) = 1
+	   [Toggle(_NORMAL_MAP)] _NormalMapToggle("Normal Map", Float) = 0
+	   //法线贴图
+	   [NoScaleOffset] _NormalMap("Normals", 2D) = "bump" {}
+		_NormalScale("Normal Scale", Range(0, 1)) = 1
 	   //自发光
 	   [NoScaleOffset] _EmissionMap("Emission", 2D) = "white" {}
 	   [HDR] _EmissionColor("Emission", Color) = (0.0, 0.0, 0.0, 0.0)
+	   //细节纹理
+	   [Toggle(_DETAIL_MAP)] _DetailMapToggle("Detail Maps", Float) = 0
+	   _DetailMap("Details", 2D) = "linearGrey" {}
+	   [NoScaleOffset] _DetailNormalMap("Detail Normals", 2D) = "bump" {}
+	   _DetailAlbedo("Detail Albedo", Range(0, 1)) = 1
+	   _DetailSmoothness("Detail Smoothness", Range(0, 1)) = 1
+	   _DetailNormalScale("Detail Normal Scale", Range(0, 1)) = 1
 	   //设置混合模式
 	  [Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend("Src Blend", Float) = 1
 	  [Enum(UnityEngine.Rendering.BlendMode)] _DstBlend("Dst Blend", Float) = 0
@@ -51,6 +68,9 @@
 		   #pragma shader_feature _RECEIVE_SHADOWS
 		   //是否透明通道预乘
 		   #pragma shader_feature _PREMULTIPLY_ALPHA
+		   #pragma shader_feature _NORMAL_MAP
+		   #pragma shader_feature _MASK_MAP
+		   #pragma shader_feature _DETAIL_MAP
 		   #pragma multi_compile _ _DIRECTIONAL_PCF3 _DIRECTIONAL_PCF5 _DIRECTIONAL_PCF7
 		   #pragma multi_compile _ _OTHER_PCF3 _OTHER_PCF5 _OTHER_PCF7
 		   #pragma multi_compile _ _CASCADE_BLEND_SOFT _CASCADE_BLEND_DITHER

@@ -323,7 +323,7 @@
 -r:"F:/Softwave/Unity/2021.3.16f1c1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.XDocument.dll"
 -r:"F:/Softwave/Unity/2021.3.16f1c1/Editor/Data/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll"
 -r:"F:/Softwave/Unity/2021.3.16f1c1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll"
--r:"F:/UnitySPRLearning/ComplexMaps/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll"
+-r:"F:/UnitySPRLearning/Particles/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Core.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Core.Runtime.ref.dll"
@@ -356,6 +356,7 @@
 "Assets/CustomRP/Runtime/ReinterpretExtensions.cs"
 "Assets/CustomRP/Runtime/RenderingLayerMaskFieldAttribute.cs"
 "Assets/CustomRP/Runtime/Shadows.cs"
+"Assets/CustomRP/Settings/CameraBufferSettings.cs"
 "Assets/CustomRP/Settings/CameraSettings.cs"
 "Assets/CustomRP/Settings/ShadowSettings.cs"
 -langversion:9.0

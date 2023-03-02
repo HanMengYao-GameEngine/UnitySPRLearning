@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{834a2551-1184-e3d0-fe5b-560aebc6ffb5}</ProjectGuid>
+    <ProjectGuid>{7a8a54eb-cee1-1702-b96f-dd1de0104985}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -373,7 +373,7 @@
      <HintPath>F:\Softwave\Unity\2021.3.16f1c1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.XRModule.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
-     <HintPath>F:\UnitySPRLearning\ComplexMaps\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+     <HintPath>F:\UnitySPRLearning\Particles\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>F:\Softwave\Unity\2021.3.16f1c1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

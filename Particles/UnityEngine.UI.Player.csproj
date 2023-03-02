@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{96ceaef8-fc90-e38b-afbc-b4779e50b926}</ProjectGuid>
+    <ProjectGuid>{d367e6dc-7770-4237-fd0d-1145252a0417}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -348,7 +348,7 @@
      <HintPath>F:\Softwave\Unity\2021.3.16f1c1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.XRModule.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>F:\UnitySPRLearning\ComplexMaps\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\AOT\Newtonsoft.Json.dll</HintPath>
+     <HintPath>F:\UnitySPRLearning\Particles\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\AOT\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>F:\Softwave\Unity\2021.3.16f1c1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

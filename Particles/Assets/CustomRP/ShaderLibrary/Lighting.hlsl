@@ -25,6 +25,7 @@ float3 GetLighting(Surface surfaceWS, BRDF brdf,  GI gi) {
 		if (RenderingLayersOverlap(surfaceWS, light)) {
 			color += GetLighting(surfaceWS, brdf, light);
 		}
+		
 	}
 
 	#if defined(_LIGHTS_PER_OBJECT)
@@ -34,6 +35,7 @@ float3 GetLighting(Surface surfaceWS, BRDF brdf,  GI gi) {
 			if (RenderingLayersOverlap(surfaceWS, light)) {
 				color += GetLighting(surfaceWS, brdf, light);
 			}
+			
 		}
 	#else
 		for (int j = 0; j < GetOtherLightCount(); j++) {
@@ -41,6 +43,7 @@ float3 GetLighting(Surface surfaceWS, BRDF brdf,  GI gi) {
 			if (RenderingLayersOverlap(surfaceWS, light)) {
 				color += GetLighting(surfaceWS, brdf, light);
 			}
+			
 		}
 	#endif
 

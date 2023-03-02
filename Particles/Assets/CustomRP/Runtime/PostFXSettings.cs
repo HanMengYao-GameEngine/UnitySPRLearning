@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 /// <summary>
 /// 后处理特效栈的配置

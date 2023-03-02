@@ -1,4 +1,4 @@
-//后处理效果
+﻿//后处理效果
 #ifndef CUSTOM_POST_FX_PASSES_INCLUDED
 #define CUSTOM_POST_FX_PASSES_INCLUDED
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
@@ -11,7 +11,6 @@ struct Varyings {
 TEXTURE2D(_PostFXSource);
 TEXTURE2D(_PostFXSource2);
 TEXTURE2D(_ColorGradingLUT);
-SAMPLER(sampler_linear_clamp);
 
 float4 _PostFXSource_TexelSize;
 bool _BloomBicubicUpsampling;
@@ -123,7 +122,6 @@ float3 ColorGradingSaturation (float3 color, bool useACES) {
 
 //颜色分级
 float3 ColorGrade (float3 color, bool useACES = false) {
-	//color = min(color, 60.0);
 	color = ColorGradePostExposure(color);
 	color = ColorGradeWhiteBalance(color);
 	color = ColorGradingContrast(color, useACES);
@@ -227,7 +225,7 @@ float4 BloomScatterFinalPassFragment(Varyings input) : SV_TARGET{
 		lowRes = GetSource(input.screenUV).rgb;
 	}
 	float4 highRes = GetSource2(input.screenUV);
-	lowRes += highRes - ApplyBloomThreshold(highRes.rgb);
+	lowRes += highRes.rgb - ApplyBloomThreshold(highRes.rgb);
 	return float4(lerp(highRes.rgb, lowRes, _BloomIntensity), highRes.a);
 }
 float4 BloomPrefilterPassFragment (Varyings input) : SV_TARGET {

@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{514e3b38-1a3c-8e69-05c8-eb8aa6c9b44d}</ProjectGuid>
+    <ProjectGuid>{575434ef-eba4-f6bd-f61e-68999d0c2de1}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -250,7 +250,7 @@
      <HintPath>F:\Softwave\Unity\2021.3.16f1c1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.XRModule.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>F:\UnitySPRLearning\ComplexMaps\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\AOT\Newtonsoft.Json.dll</HintPath>
+     <HintPath>F:\UnitySPRLearning\Particles\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\AOT\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>F:\Softwave\Unity\2021.3.16f1c1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -621,43 +621,43 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Services.Core.Internal.Player.csproj">
-      <Project>{67ccb2ae-564c-037a-6a30-b1882ca46e4d}</Project>
+      <Project>{c1fe21b0-ac98-ac66-b58e-746d621c89fb}</Project>
       <Name>Unity.Services.Core.Internal.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Device.Player.csproj">
-      <Project>{3a9147c9-0e6e-8b56-cc46-ca3ba62053b7}</Project>
+      <Project>{92268bc4-eaaa-7b1c-cf1b-63e3fdea1ba5}</Project>
       <Name>Unity.Services.Core.Device.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Environments.Player.csproj">
-      <Project>{a39eac50-5695-d508-f479-43d587caadb2}</Project>
+      <Project>{695d141d-e189-380d-bc36-b6252ce08502}</Project>
       <Name>Unity.Services.Core.Environments.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Environments.Internal.Player.csproj">
-      <Project>{743b2429-51bd-cbad-7260-6187a3e11614}</Project>
+      <Project>{58d2ac3d-8d59-59d1-9a36-c99b0d75e8b9}</Project>
       <Name>Unity.Services.Core.Environments.Internal.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Configuration.Player.csproj">
-      <Project>{1c496e2a-9a56-dbad-958f-717b0683b812}</Project>
+      <Project>{a091888f-c967-df92-b4b3-e5297fc67325}</Project>
       <Name>Unity.Services.Core.Configuration.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Player.csproj">
-      <Project>{2c39d72a-3629-0abc-85b9-0da2d9841801}</Project>
+      <Project>{6393e131-0a75-8618-db99-033cc1391762}</Project>
       <Name>Unity.Services.Core.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Telemetry.Player.csproj">
-      <Project>{744ae40e-161d-d159-abde-251ba3aa1483}</Project>
+      <Project>{3b2f230f-4cb1-cdb1-9131-2e8245e61e28}</Project>
       <Name>Unity.Services.Core.Telemetry.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Scheduler.Player.csproj">
-      <Project>{1420adfb-fba2-81b5-ff3f-497fb5627914}</Project>
+      <Project>{14b25f33-5f21-b1ac-23ba-2117cba848e6}</Project>
       <Name>Unity.Services.Core.Scheduler.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Threading.Player.csproj">
-      <Project>{27b8f5a0-e044-0c27-42ae-45dd385f29b4}</Project>
+      <Project>{d1a5ef36-3ea7-0359-89cc-d955de632552}</Project>
       <Name>Unity.Services.Core.Threading.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{96ceaef8-fc90-e38b-afbc-b4779e50b926}</Project>
+      <Project>{d367e6dc-7770-4237-fd0d-1145252a0417}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
   </ItemGroup>

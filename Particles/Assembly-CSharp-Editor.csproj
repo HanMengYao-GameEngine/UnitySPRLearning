@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0f02f328-ab46-e9de-5a4a-e48c3a451c83}</ProjectGuid>
+    <ProjectGuid>{7b7df5d2-9d61-a045-5334-59ee6469a0b9}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -307,22 +307,22 @@
      <HintPath>F:\Softwave\Unity\2021.3.16f1c1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Newtonsoft.Json">
-     <HintPath>F:\UnitySPRLearning\ComplexMaps\Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+     <HintPath>F:\UnitySPRLearning\Particles\Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Antlr3.Runtime">
-     <HintPath>F:\UnitySPRLearning\ComplexMaps\Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+     <HintPath>F:\UnitySPRLearning\Particles\Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="unityplastic">
-     <HintPath>F:\UnitySPRLearning\ComplexMaps\Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+     <HintPath>F:\UnitySPRLearning\Particles\Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
      </Reference>
      <Reference Include="log4netPlastic">
-     <HintPath>F:\UnitySPRLearning\ComplexMaps\Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+     <HintPath>F:\UnitySPRLearning\Particles\Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>F:\UnitySPRLearning\ComplexMaps\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+     <HintPath>F:\UnitySPRLearning\Particles\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
-     <HintPath>F:\UnitySPRLearning\ComplexMaps\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+     <HintPath>F:\UnitySPRLearning\Particles\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
      </Reference>
      <Reference Include="mscorlib">
      <HintPath>F:\Softwave\Unity\2021.3.16f1c1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
@@ -702,79 +702,79 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{8a6fc589-5177-8488-27a2-c4d7c2fe7a9f}</Project>
+      <Project>{203e83a2-5005-e003-8ca5-3dd8fb6c6e27}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{52ccfc87-9136-45f0-1d69-9bce52bc8476}</Project>
+      <Project>{9b5d2494-b12c-cbbe-f495-653e14be60c4}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{5ca3e208-b332-b8b6-3dfb-64eff7182b19}</Project>
+      <Project>{2f7a7cf7-0f0a-fc8f-10d9-071657063336}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VSCode.Editor.csproj">
-      <Project>{86d01bf0-1476-1b02-0234-2873867c1bfb}</Project>
+      <Project>{4c7a7901-335f-082b-6024-10aa68909cb9}</Project>
       <Name>Unity.VSCode.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Analytics.csproj">
-      <Project>{d0e81f51-6e68-0243-bff9-2e2015d62050}</Project>
+      <Project>{cde9ac3a-b99b-e968-95d7-0fbef7ac5311}</Project>
       <Name>Unity.Services.Core.Analytics</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
-      <Project>{ac7db5b6-dd65-fdc8-f120-4e6b64ec107c}</Project>
+      <Project>{e71e1f0b-560b-b003-ada4-7a779dbcd4bf}</Project>
       <Name>Unity.TextMeshPro.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Environments.csproj">
-      <Project>{4be8e3c5-1d64-b78c-ea7e-577b7ce324ed}</Project>
+      <Project>{9c0f98c8-0502-bf94-dc4a-216220b9d2f6}</Project>
       <Name>Unity.Services.Core.Environments</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
-      <Project>{dc8441cf-e6be-87c6-58cc-f090384e2426}</Project>
+      <Project>{a38124e6-32c3-06e9-6c60-a400ac294a6c}</Project>
       <Name>Unity.VisualStudio.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
-      <Project>{1848ee76-ffc7-282d-419d-05734afc4b22}</Project>
+      <Project>{4d420289-210a-b6dd-96cc-21d38983930d}</Project>
       <Name>Unity.Timeline.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
-      <Project>{8694265d-bb1f-b4b1-cefb-ca0ad6b0ef32}</Project>
+      <Project>{586d3b5c-fce3-7468-ef91-7e9726b18390}</Project>
       <Name>Unity.Timeline</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
-      <Project>{a701a37c-86f4-40e1-9a82-c6ae0a523c19}</Project>
+      <Project>{331f1253-ce8b-c20a-6012-b2e8f3e62cd8}</Project>
       <Name>Unity.TextMeshPro</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
-      <Project>{c20b9dc6-b3ac-58ec-5fc9-c4c3549464f4}</Project>
+      <Project>{5afff83d-285a-174c-34f4-377422728562}</Project>
       <Name>Unity.RenderPipelines.Core.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{6bf329fe-d7c4-3b93-e61b-bbf38c53ea17}</Project>
+      <Project>{f6277cb1-db1a-d5fd-1510-d98987c0ceeb}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.PlasticSCM.Editor.csproj">
-      <Project>{09072029-7993-a674-6f64-a4d96bf1785c}</Project>
+      <Project>{e8fe0782-a098-2aa9-07fe-a9c7457c2285}</Project>
       <Name>Unity.PlasticSCM.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Rider.Editor.csproj">
-      <Project>{c76706e4-3d8c-39b8-4175-ab310d0a8783}</Project>
+      <Project>{6465ceeb-7978-e387-62b6-0007b10ee59a}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.csproj">
-      <Project>{9c8b14c4-8d86-efc5-bd7c-4ebd8d1c19df}</Project>
+      <Project>{5da5ec2c-53fa-5777-1db4-0e74ca128f67}</Project>
       <Name>Unity.RenderPipelines.Core.ShaderLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{b4863023-87fb-afb5-4c02-faa82088bd71}</Project>
+      <Project>{35148de9-c1d2-89d3-9da9-ccaddd6638d0}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Editor.csproj">
-      <Project>{d7e0e3a5-1dcf-b1e8-c39c-7824df5eeee9}</Project>
+      <Project>{fa6111d9-51c3-99a3-33b0-d8e00e4e14ea}</Project>
       <Name>Unity.RenderPipelines.Core.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.csproj">
-      <Project>{1acc706a-1d7b-9fbe-b4f3-56cf12dc51cc}</Project>
+      <Project>{b45b967a-12d2-1e4e-22a6-c7ba093a40ab}</Project>
       <Name>Unity.Services.Core</Name>
     </ProjectReference>
   </ItemGroup>

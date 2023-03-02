@@ -8,14 +8,12 @@ CBUFFER_START(_CustomLight)
 	int _DirectionalLightCount;
 	//定向光源颜色、方向、阴影等数据
     float4 _DirectionalLightColors[MAX_DIRECTIONAL_LIGHT_COUNT];
-    float4 _DirectionalLightDirections[MAX_DIRECTIONAL_LIGHT_COUNT];
-	float4 _DirectionalLightDirectionsAndMasks[MAX_DIRECTIONAL_LIGHT_COUNT];
+    float4 _DirectionalLightDirectionsAndMasks[MAX_DIRECTIONAL_LIGHT_COUNT];
 	float4 _DirectionalLightShadowData[MAX_DIRECTIONAL_LIGHT_COUNT];
 	//非定向光源相关数据
 	int _OtherLightCount;
 	float4 _OtherLightColors[MAX_OTHER_LIGHT_COUNT];
 	float4 _OtherLightPositions[MAX_OTHER_LIGHT_COUNT];
-	float4 _OtherLightDirections[MAX_OTHER_LIGHT_COUNT];
 	float4 _OtherLightDirectionsAndMasks[MAX_OTHER_LIGHT_COUNT];
 	float4 _OtherLightSpotAngles[MAX_OTHER_LIGHT_COUNT];
 	float4 _OtherLightShadowData[MAX_OTHER_LIGHT_COUNT];
@@ -23,7 +21,7 @@ CBUFFER_END
 
 //灯光的属性
 struct Light {
-        //颜色
+	//颜色
 	float3 color;
 	//方向
 	float3 direction;
@@ -55,7 +53,7 @@ DirectionalShadowData GetDirectionalShadowData(int lightIndex, ShadowData shadow
 Light GetDirectionalLight (int index,Surface surfaceWS, ShadowData shadowData) {
 	Light light;
 	light.color = _DirectionalLightColors[index].rgb;
-	light.direction = _DirectionalLightDirections[index].xyz;
+	light.direction = _DirectionalLightDirectionsAndMasks[index].xyz;
 	light.renderingLayerMask = asuint(_DirectionalLightDirectionsAndMasks[index].w);
 	//得到阴影数据
 	DirectionalShadowData dirShadowData = GetDirectionalShadowData(index,shadowData);
@@ -87,7 +85,7 @@ Light GetOtherLight (int index, Surface surfaceWS, ShadowData shadowData) {
 	//套用公式计算光照范围衰减
 	float rangeAttenuation = Square(saturate(1.0 - Square(distanceSqr * _OtherLightPositions[index].w)));
 	float4 spotAngles = _OtherLightSpotAngles[index];
-	float3 spotDirection = _OtherLightDirections[index].xyz;
+	float3 spotDirection = _OtherLightDirectionsAndMasks[index].xyz;
 	light.renderingLayerMask = asuint(_OtherLightDirectionsAndMasks[index].w);
 	//计算聚光灯衰减值
 	float spotAttenuation =  Square(saturate(dot(spotDirection, light.direction) * spotAngles.x + spotAngles.y));

@@ -1,4 +1,4 @@
-Shader "Hidden/Custom RP/Post FX Stack" {
+﻿Shader "Hidden/Custom RP/Post FX Stack" {
 	
 	SubShader {
 		Cull Off
@@ -59,6 +59,7 @@ Shader "Hidden/Custom RP/Post FX Stack" {
 				#pragma fragment BloomScatterFinalPassFragment
 			ENDHLSL
 		}
+		
 		Pass {
 			Name "Bloom Prefilter"
 			

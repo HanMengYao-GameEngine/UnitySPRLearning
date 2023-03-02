@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{18240b43-bbd4-fd63-52b4-916f253dc216}</ProjectGuid>
+    <ProjectGuid>{2c10925e-e435-0251-f605-89c4bb5b9617}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -58,6 +58,7 @@
      <Compile Include="Assets\CustomRP\Runtime\CustomRenderPipelineAsset.cs" />
      <Compile Include="Assets\CustomRP\Runtime\Lighting.cs" />
      <Compile Include="Assets\CustomRP\Runtime\CustomRenderPipelineAsset.Editor.cs" />
+     <Compile Include="Assets\CustomRP\Settings\CameraBufferSettings.cs" />
      <Compile Include="Assets\CustomRP\Runtime\RenderingLayerMaskFieldAttribute.cs" />
      <Folder Include="Assets" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\mergetool.ja.txt" />
@@ -113,6 +114,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\configurehelper.en.txt" />
      <Folder Include="Assets\Scene\Scene8\Scene8" />
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.16\ValidationConfig.json" />
+     <Folder Include="Assets\Scene\Scene15" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\net35" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\basecommands.zh-Hant.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\cm-help.es.txt" />
@@ -154,6 +156,7 @@
      <Folder Include="Library\PackageCache\com.unity.services.core@1.6.0\Editor" />
      <Folder Include="Library\PackageCache\com.unity.modules.unitywebrequest@1.0.0" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\ValidationExceptions.json" />
+     <Folder Include="Assets\Scene\Scene15\Scene15" />
      <Folder Include="Library\PackageCache\com.unity.modules.unitywebrequestassetbundle@1.0.0" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\cm.en.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\commontypes.en.txt" />
@@ -179,6 +182,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\workspaceserver.es.txt" />
      <Folder Include="Library\PackageCache\com.unity.modules.physics2d@1.0.0" />
      <Folder Include="Assets\Scene\Scene4" />
+     <None Include="Assets\CustomRP\Shaders\Fragment.hlsl" />
      <Folder Include="Assets\Scene\Scene11\Scene11" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\cm-help.en.txt" />
      <None Include="Library\PackageCache\com.unity.modules.particlesystem@1.0.0\package.json" />
@@ -239,6 +243,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\differences.ko.txt" />
      <None Include="Library\PackageCache\com.unity.modules.vehicles@1.0.0\package.json" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor" />
+     <None Include="Assets\CustomRP\Shaders\Unlit-Particle.shader" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\plastic-gui.es.txt" />
      <Folder Include="Assets\Scene\Scene10" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\images.en.txt" />
@@ -333,6 +338,7 @@
      <Folder Include="Library\PackageCache\com.unity.ugui@1.0.0" />
      <None Include="Library\PackageCache\com.unity.modules.ui@1.0.0\package.json" />
      <None Include="Assets\CustomRP\ShaderLibrary\BRDF.hlsl" />
+     <None Include="Assets\CustomRP\Shaders\CameraRendererPasses.hlsl" />
      <None Include="Assets\CustomRP\ShaderLibrary\Lighting.hlsl" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\semantic.zh-Hans.txt" />
      <Folder Include="Assets\Scene\Scene9\Material" />
@@ -545,7 +551,7 @@
      <HintPath>F:\Softwave\Unity\2021.3.16f1c1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.XRModule.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>F:\UnitySPRLearning\ComplexMaps\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\AOT\Newtonsoft.Json.dll</HintPath>
+     <HintPath>F:\UnitySPRLearning\Particles\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\AOT\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>F:\Softwave\Unity\2021.3.16f1c1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -916,35 +922,35 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Services.Core.Analytics.Player.csproj">
-      <Project>{1d7af1ae-bbf6-c38e-c0ea-58679098b9b2}</Project>
+      <Project>{9128cd10-4b73-d09e-0464-0d0c8d5c673d}</Project>
       <Name>Unity.Services.Core.Analytics.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Environments.Player.csproj">
-      <Project>{a39eac50-5695-d508-f479-43d587caadb2}</Project>
+      <Project>{695d141d-e189-380d-bc36-b6252ce08502}</Project>
       <Name>Unity.Services.Core.Environments.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Player.csproj">
-      <Project>{0f993f54-10d2-d8cf-0991-d4115f59877c}</Project>
+      <Project>{6845d8de-a4e1-b1b0-8329-781feffbb2e8}</Project>
       <Name>Unity.Timeline.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Player.csproj">
-      <Project>{c5c9d996-0336-72e9-789f-186f622e9e62}</Project>
+      <Project>{19abd9df-05da-50cb-be10-115b32aeccbc}</Project>
       <Name>Unity.TextMeshPro.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.Player.csproj">
-      <Project>{250d65b1-bc8a-0836-729c-fc5b4294d86b}</Project>
+      <Project>{1fad4308-c568-e094-4504-3639222b68e8}</Project>
       <Name>Unity.RenderPipelines.Core.Runtime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.Player.csproj">
-      <Project>{a687af6a-d066-b8fd-48da-25874b77219d}</Project>
+      <Project>{a7068f8f-3ba5-69e8-b914-d74780563be1}</Project>
       <Name>Unity.RenderPipelines.Core.ShaderLibrary.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{96ceaef8-fc90-e38b-afbc-b4779e50b926}</Project>
+      <Project>{d367e6dc-7770-4237-fd0d-1145252a0417}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Player.csproj">
-      <Project>{2c39d72a-3629-0abc-85b9-0da2d9841801}</Project>
+      <Project>{6393e131-0a75-8618-db99-033cc1391762}</Project>
       <Name>Unity.Services.Core.Player</Name>
     </ProjectReference>
   </ItemGroup>

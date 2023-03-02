@@ -9,6 +9,7 @@ public partial class CustomRenderPipeline
 {
 
     partial void InitializeForEditor();
+    partial void DisposeForEditor();
 
 #if UNITY_EDITOR
     //重写lightmapper设置光照数据
@@ -58,11 +59,19 @@ public partial class CustomRenderPipeline
     {
         Lightmapping.SetDelegate(lightsDelegate);
     }
-    //清理和重置委托
+    //重置委托
+    partial void DisposeForEditor()
+    {
+        Lightmapping.ResetDelegate();
+    }
+
+
+#endif
+
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
-        Lightmapping.ResetDelegate();
+        DisposeForEditor();
+        renderer.Dispose();
     }
-#endif
 }

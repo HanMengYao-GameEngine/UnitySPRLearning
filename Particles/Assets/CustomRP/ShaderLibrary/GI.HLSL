@@ -43,7 +43,7 @@ struct GI {
 float3 SampleLightMap(float2 lightMapUV) {
 #if defined(LIGHTMAP_ON)
 	return SampleSingleLightmap(TEXTURE2D_ARGS(unity_Lightmap, samplerunity_Lightmap), lightMapUV,float4(1.0, 1.0, 0.0, 0.0),
-		//判断是否压缩了光照贴图
+	//判断是否压缩了光照贴图
 #if defined(UNITY_LIGHTMAP_FULL_HDR)
 		false,
 #else
@@ -104,7 +104,6 @@ float3 SampleEnvironment (Surface surfaceWS, BRDF brdf) {
 	//通过感知粗糙度来计算出正确的mipmap级别
 	float mip = PerceptualRoughnessToMipmapLevel(brdf.perceptualRoughness);
 	float4 environment = SAMPLE_TEXTURECUBE_LOD(unity_SpecCube0, samplerunity_SpecCube0, uvw, mip);
-	//return environment.rgb;
 	return DecodeHDREnvironment(environment, unity_SpecCube0_HDR);
 }
 //得到全局照明数据

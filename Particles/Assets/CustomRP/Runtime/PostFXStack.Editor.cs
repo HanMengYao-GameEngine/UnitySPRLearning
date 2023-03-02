@@ -1,11 +1,11 @@
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 /// <summary>
 /// 后处理效果管理类：只用于编辑器
 /// </summary>
 partial class PostFXStack
 {
-    partial void ApplySceneViewState();
+	partial void ApplySceneViewState();
 
 #if UNITY_EDITOR
 	partial void ApplySceneViewState()

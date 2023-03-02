@@ -1,7 +1,6 @@
 ﻿//BRDF相关库
 #ifndef CUSTOM_BRDF_INCLUDED
 #define CUSTOM_BRDF_INCLUDED
-
 //BRDF属性
 struct BRDF {
 	//漫反射
